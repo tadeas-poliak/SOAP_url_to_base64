@@ -60,7 +60,8 @@
     <service name="ImageService">
         <documentation>Service for processing images</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
-            <soap:address location="http://localhost:8001/MyFunction"/>
+            <!-- <soap:address location="http://localhost:8001/MyFunction"/> -->
+            <soap:address location="https://soap-url-to-base64.onrender.com/MyFunction"/>
         </port>
     </service>
 </definitions>
