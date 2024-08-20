@@ -45,10 +45,10 @@ const myService = {
 };
 
 const xml = fs.readFileSync('testService.wsdl', 'utf8');
-
+const port = process.env.PORT || 4000;
 const app = express();
 
-app.listen(8001, function () {
+app.listen(port, function () {
     soap.listen(app, '/MyFunction', myService, xml, function () {
         console.log('SOAP server initialized... open http://localhost:8001/MyFunction?wsdl');
     });
