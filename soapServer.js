@@ -29,9 +29,9 @@ const myService = {
                     // Converting the canvas to a Base64 string
                     const base64Image = imageCanvas.toDataURL('image/png').replace('data:image/png;base64,', '');
                     //Donwloading the image
-                    fs.writeFileSync('image.png', base64Image, 'base64');
+                    //fs.writeFileSync('image.png', base64Image, 'base64');
                     //Writing the base64 text to text file
-                    fs.writeFileSync('image.txt', base64Image, "utf-8");
+                    //fs.writeFileSync('image.txt', base64Image, "utf-8");
 
                     // Return the base64 encoded image as the response
                     return { base64Image: base64Image };
