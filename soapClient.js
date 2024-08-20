@@ -1,0 +1,19 @@
+import soap from 'soap';
+
+var url = 'http://localhost:8001/MyFunction?wsdl';
+var args = { imageUrl: 'http://www.delbag.net/SAP/HENGST_logo_carton.png' };
+
+soap.createClient(url, function(err, client) {
+  if (err) {
+    console.error("Client creation error: ", err);
+    return;
+  }
+
+  client.ProcessImage(args, function(err, result) {
+    if (err) {
+        console.error("Error calling ProcessImage: ", err);
+    } else {
+        console.log("Result: ", result);
+    }
+  });
+});
