@@ -1,14 +1,14 @@
 <definitions name="ImageService"
-             targetNamespace="http://www.nttdata.com/ImageService"
+             targetNamespace="http://tempuri.org/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-             xmlns:tns="http://www.nttdata.com/ImageService"
+             xmlns:tns="http://tempuri.org/ImageService"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
              xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- Define the types -->
     <types>
-        <xs:schema elementFormDefault="qualified" targetNamespace="http://www.nttdata.com/ImageService">
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ImageService">
             <!-- ProcessImageRequest and ProcessImageResponse definitions -->
             <xs:element name="ProcessImageRequest">
                 <xs:complexType>
@@ -74,21 +74,21 @@
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="http://www.nttdata.com/ImageService/ProcessImage"/>
+            <soap:operation soapAction="http://tempuri.org/ImageService/ProcessImage"/>
             <input>
-                <soap:body use="literal" namespace="http://www.nttdata.com/ImageService"/>
+                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="http://www.nttdata.com/ImageService"/>
+                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
             </output>
         </operation>
         <operation name="AddIntegers">
-            <soap:operation soapAction="http://www.nttdata.com/ImageService/AddIntegers"/>
+            <soap:operation soapAction="http://tempuri.org/ImageService/AddIntegers"/>
             <input>
-                <soap:body use="literal" namespace="http://www.nttdata.com/ImageService"/>
+                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="http://www.nttdata.com/ImageService"/>
+                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
             </output>
         </operation>
     </binding>
