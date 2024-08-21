@@ -1,12 +1,20 @@
 <definitions name="ImageService"
              targetNamespace="http://tempuri.org/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-             xmlns:tns="http://tempuri.org/ImageService">
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:tns="http://tempuri.org/ImageService"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
+    <!-- Define the types -->
     <types>
         <xsd:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ImageService">
+            <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
+            <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
+            <!-- Define the complex types here if needed -->
             <xsd:element name="ProcessImageRequest">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -39,6 +47,7 @@
         </xsd:schema>
     </types>
 
+    <!-- Define the input and output messages -->
     <message name="ProcessImageRequestSoapIn">
         <part name="parameters" element="tns:ProcessImageRequest"/>
     </message>
@@ -52,6 +61,7 @@
         <part name="parameters" element="tns:AddIntegersResponse"/>
     </message>
 
+    <!-- Define the port type with the operations -->
     <portType name="ImagePortType">
         <operation name="ProcessImage">
             <input message="tns:ProcessImageRequestSoapIn"/>
@@ -63,6 +73,7 @@
         </operation>
     </portType>
 
+    <!-- Define the binding -->
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
@@ -85,7 +96,9 @@
         </operation>
     </binding>
 
+    <!-- Define the service and its endpoint -->
     <service name="ImageService">
+        <documentation>Service for processing images and adding integers</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
             <soap:address location="https://soap-url-to-base64.onrender.com/MyFunction"/>
         </port>
