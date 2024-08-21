@@ -1,6 +1,5 @@
-import soap from 'soap';
-
-var url = 'http://localhost:8001/MyFunction?wsdl';
+var soap = require('soap');
+var url = 'http://localhost:8001/SOAP.Demo.cls?wsdl';
 var args = { imageUrl: 'http://www.delbag.net/SAP/HENGST_logo_carton.png' };
 
 soap.createClient(url, function(err, client) {

@@ -1,8 +1,8 @@
-import express from 'express';
-import soap from 'soap';
-import fs from 'fs';
-import fetch from 'node-fetch';
-import { createCanvas, loadImage } from 'canvas';
+const express = require('express');
+const soap = require('soap');
+const fs = require('fs');
+const fetch = import('node-fetch');
+const { createCanvas, loadImage } = require('canvas');
 
 const myService = {
     ImageService: {

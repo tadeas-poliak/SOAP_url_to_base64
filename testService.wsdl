@@ -71,6 +71,11 @@
             <input message="tns:AddIntegersRequestSoapIn"/>
             <output message="tns:AddIntegersResponseSoapOut"/>
         </operation>
+        <!-- New Operation for SOAP.Demo -->
+        <operation name="SOAPDemoAddInteger">
+            <input message="tns:AddIntegersRequestSoapIn"/>
+            <output message="tns:AddIntegersResponseSoapOut"/>
+        </operation>
     </portType>
 
     <!-- Define the binding -->
@@ -92,6 +97,16 @@
             </input>
             <output>
                 <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
+            </output>
+        </operation>
+        <!-- New Binding for SOAP.Demo -->
+        <operation name="SOAPDemoAddInteger">
+            <soap:operation soapAction="http://tempuri.org/SOAP.Demo.AddInteger"/>
+            <input>
+                <soap:body use="literal" namespace="http://tempuri.org/SOAP.Demo"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://tempuri.org/SOAP.Demo"/>
             </output>
         </operation>
     </binding>
