@@ -1,72 +1,75 @@
 <definitions name="ImageService"
              targetNamespace="http://tempuri.org/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:tns="http://tempuri.org/ImageService"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-             xmlns:xs="http://www.w3.org/2001/XMLSchema">
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
     <!-- Define the types -->
     <types>
-        <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ImageService">
-            <!-- ProcessImageRequest and ProcessImageResponse definitions -->
-            <xs:element name="ProcessImageRequest">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="imageUrl" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="ProcessImageResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="base64Image" type="xs:string"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-
-            <!-- AddIntegersRequest and AddIntegersResponse definitions -->
-            <xs:element name="AddIntegersRequest">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="intA" type="xs:int"/>
-                        <xs:element name="intB" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="AddIntegersResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="sum" type="xs:int"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:schema>
+        <xsd:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ImageService">
+            <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
+            <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
+            <!-- Define the complex types here if needed -->
+            <xsd:element name="ProcessImageRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="imageUrl" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProcessImageResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="base64Image" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AddIntegersRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="intA" type="xsd:int"/>
+                        <xsd:element name="intB" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AddIntegersResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="sum" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
     </types>
 
     <!-- Define the input and output messages -->
-    <message name="ProcessImageRequest">
+    <message name="ProcessImageRequestSoapIn">
         <part name="parameters" element="tns:ProcessImageRequest"/>
     </message>
-    <message name="ProcessImageResponse">
+    <message name="ProcessImageResponseSoapOut">
         <part name="parameters" element="tns:ProcessImageResponse"/>
     </message>
-    <message name="AddIntegersRequest">
+    <message name="AddIntegersRequestSoapIn">
         <part name="parameters" element="tns:AddIntegersRequest"/>
     </message>
-    <message name="AddIntegersResponse">
+    <message name="AddIntegersResponseSoapOut">
         <part name="parameters" element="tns:AddIntegersResponse"/>
     </message>
 
     <!-- Define the port type with the operations -->
     <portType name="ImagePortType">
         <operation name="ProcessImage">
-            <input message="tns:ProcessImageRequest"/>
-            <output message="tns:ProcessImageResponse"/>
+            <input message="tns:ProcessImageRequestSoapIn"/>
+            <output message="tns:ProcessImageResponseSoapOut"/>
         </operation>
         <operation name="AddIntegers">
-            <input message="tns:AddIntegersRequest"/>
-            <output message="tns:AddIntegersResponse"/>
+            <input message="tns:AddIntegersRequestSoapIn"/>
+            <output message="tns:AddIntegersResponseSoapOut"/>
         </operation>
     </portType>
 
