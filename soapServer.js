@@ -55,8 +55,8 @@ app.use(function (req, res, next) {
 
 app.listen(port, function () {
     
-    soap.listen(app, '/MyFunction', myService, xml, function () {
-        console.log('SOAP server initialized... open http://localhost:'+ port +'/MyFunction?wsdl');
+    soap.listen(app, '/SOAP.Demo.cls', myService, xml, function () {
+        console.log('SOAP server initialized... open http://localhost:'+ port +'/SOAP.Demo.cls?wsdl');
     });
 });
 
