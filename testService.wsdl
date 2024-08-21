@@ -1,14 +1,14 @@
 <definitions name="ImageService"
-             targetNamespace="http://www.example.com/ImageService"
+             targetNamespace="http://soap-url-to-base64.onrender.com/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-             xmlns:tns="http://www.example.com/ImageService"
+             xmlns:tns="http://soap-url-to-base64.onrender.com/ImageService"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
              xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- Define the types -->
     <types>
-        <xs:schema elementFormDefault="qualified" targetNamespace="http://www.example.com/ImageService">
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://soap-url-to-base64.onrender.com/ImageService">
             <xs:element name="ProcessImageRequest">
                 <xs:complexType>
                     <xs:sequence>
@@ -46,12 +46,12 @@
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="http://www.example.com/ImageService/ProcessImage"/>
+            <soap:operation soapAction="http://soap-url-to-base64.onrender.com/ImageService/ProcessImage"/>
             <input>
-                <soap:body use="literal" namespace="http://www.example.com/ImageService"/>
+                <soap:body use="literal" namespace="http://soap-url-to-base64.onrender.com/ImageService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="http://www.example.com/ImageService"/>
+                <soap:body use="literal" namespace="http://soap-url-to-base64.onrender.com/ImageService"/>
             </output>
         </operation>
     </binding>
@@ -61,7 +61,7 @@
         <documentation>Service for processing images</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
             <!-- <soap:address location="http://localhost:8001/MyFunction"/> -->
-            <soap:address location="https://soap-url-to-base64.onrender.com/MyFunction"/>
+            <soap:address location="http://soap-url-to-base64.onrender.com/MyFunction"/>
         </port>
     </service>
 </definitions>
