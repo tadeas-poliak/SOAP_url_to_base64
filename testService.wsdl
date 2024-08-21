@@ -100,7 +100,7 @@
     <service name="ImageService">
         <documentation>Service for processing images and adding integers</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
-            <soap:address location="https://soap-url-to-base64.onrender.com/MyFunction"/>
+            <soap:address location="https://soap-url-to-base64.onrender.com:10000/MyFunction"/>
         </port>
     </service>
 </definitions>
