@@ -16,4 +16,12 @@ soap.createClient(url, function(err, client) {
         console.log("Result: ", result);
     }
   });
+
+  client.AddIntegers({ intA: 5, intB: 10 }, function(err, result) {
+    if (err) {
+        console.error("Error calling AddIntegers: ", err);
+    } else {
+        console.log("Result: ", result);
+    }
+});
 });

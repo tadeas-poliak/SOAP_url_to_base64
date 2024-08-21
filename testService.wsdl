@@ -9,6 +9,7 @@
     <!-- Define the types -->
     <types>
         <xs:schema elementFormDefault="qualified" targetNamespace="http://www.example.com/ImageService">
+            <!-- ProcessImageRequest and ProcessImageResponse definitions -->
             <xs:element name="ProcessImageRequest">
                 <xs:complexType>
                     <xs:sequence>
@@ -23,6 +24,23 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+
+            <!-- AddIntegersRequest and AddIntegersResponse definitions -->
+            <xs:element name="AddIntegersRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="intA" type="xs:int"/>
+                        <xs:element name="intB" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddIntegersResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="sum" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
     </types>
 
@@ -33,12 +51,22 @@
     <message name="ProcessImageResponse">
         <part name="parameters" element="tns:ProcessImageResponse"/>
     </message>
+    <message name="AddIntegersRequest">
+        <part name="parameters" element="tns:AddIntegersRequest"/>
+    </message>
+    <message name="AddIntegersResponse">
+        <part name="parameters" element="tns:AddIntegersResponse"/>
+    </message>
 
-    <!-- Define the port type with the operation -->
+    <!-- Define the port type with the operations -->
     <portType name="ImagePortType">
         <operation name="ProcessImage">
             <input message="tns:ProcessImageRequest"/>
             <output message="tns:ProcessImageResponse"/>
+        </operation>
+        <operation name="AddIntegers">
+            <input message="tns:AddIntegersRequest"/>
+            <output message="tns:AddIntegersResponse"/>
         </operation>
     </portType>
 
@@ -54,11 +82,20 @@
                 <soap:body use="literal" namespace="http://www.example.com/ImageService"/>
             </output>
         </operation>
+        <operation name="AddIntegers">
+            <soap:operation soapAction="http://www.example.com/ImageService/AddIntegers"/>
+            <input>
+                <soap:body use="literal" namespace="http://www.example.com/ImageService"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://www.example.com/ImageService"/>
+            </output>
+        </operation>
     </binding>
 
     <!-- Define the service and its endpoint -->
     <service name="ImageService">
-        <documentation>Service for processing images</documentation>
+        <documentation>Service for processing images and adding integers</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
             <!-- <soap:address location="http://localhost:8001/MyFunction"/> -->
             <soap:address location="https://soap-url-to-base64.onrender.com/MyFunction"/>
