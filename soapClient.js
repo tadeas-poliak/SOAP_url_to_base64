@@ -7,7 +7,7 @@ soap.createClient(url, function(err, client) {
     console.error("Client creation error: ", err);
     return;
   }
-
+  console.log(client)
   client.ProcessImage(args, function(err, result) {
     if (err) {
         console.error("Error calling ProcessImage: ", err);

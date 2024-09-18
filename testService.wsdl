@@ -1,19 +1,19 @@
 <definitions name="ImageService"
-             targetNamespace="http://tempuri.org/ImageService"
+             targetNamespace="http://soapurltobase64-production.up.railway.app/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:tns="http://tempuri.org/ImageService"
+             xmlns:tns="http://soapurltobase64-production.up.railway.app/ImageService"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
     <!-- Define the types -->
     <types>
-        <xsd:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ImageService">
-            <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
-            <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
+        <xsd:schema elementFormDefault="qualified" targetNamespace="http://soapurltobase64-production.up.railway.app/ImageService">
+            <xsd:import namespace="http://soapurltobase64-production.up.railway.app/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
+            <xsd:import namespace="http://soapurltobase64-production.up.railway.app/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
             <!-- Define the complex types here if needed -->
             <xsd:element name="ProcessImageRequest">
                 <xsd:complexType>
@@ -82,31 +82,31 @@
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="http://tempuri.org/ImageService/ProcessImage"/>
+            <soap:operation soapAction="http://soapurltobase64-production.up.railway.app/ImageService/ProcessImage"/>
             <input>
-                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
+                <soap:body use="literal" namespace="http://soapurltobase64-production.up.railway.app/ImageService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
+                <soap:body use="literal" namespace="http://soapurltobase64-production.up.railway.app/ImageService"/>
             </output>
         </operation>
         <operation name="AddIntegers">
-            <soap:operation soapAction="http://tempuri.org/ImageService/AddIntegers"/>
+            <soap:operation soapAction="http://soapurltobase64-production.up.railway.app/ImageService/AddIntegers"/>
             <input>
-                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
+                <soap:body use="literal" namespace="http://soapurltobase64-production.up.railway.app/ImageService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="http://tempuri.org/ImageService"/>
+                <soap:body use="literal" namespace="http://soapurltobase64-production.up.railway.app/ImageService"/>
             </output>
         </operation>
         <!-- New Binding for SOAP.Demo -->
         <operation name="SOAPDemoAddInteger">
-            <soap:operation soapAction="http://tempuri.org/SOAP.Demo.AddInteger"/>
+            <soap:operation soapAction="http://soapurltobase64-production.up.railway.app/SOAP.Demo.AddInteger"/>
             <input>
-                <soap:body use="literal" namespace="http://tempuri.org/SOAP.demo.ImageService"/>
+                <soap:body use="literal" namespace="http://soapurltobase64-production.up.railway.app/SOAP.demo.ImageService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="http://tempuri.org/SOAP.demo.ImageService"/>
+                <soap:body use="literal" namespace="http://soapurltobase64-production.up.railway.app/SOAP.demo.ImageService"/>
             </output>
         </operation>
     </binding>
