@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/16912624-effc-4577-8c3e-7754d2f83074/resourceGroups/soap-base64-service/providers/Microsoft.Web/sites/soap-base64-service",
+    "appService.deploySubpath": "."
+}
