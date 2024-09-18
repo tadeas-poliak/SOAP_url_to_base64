@@ -47,11 +47,20 @@ const xml = fs.readFileSync('testService.wsdl', 'utf8');
 const port = process.env.PORT || 8001;
 const app = express();
 
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 app.use(function (req, res, next) {
     console.log("Request was made.");
     console.log('Request received: ', req.url);
     next();
 });
+
+
 
 app.listen(port, function () {
     
