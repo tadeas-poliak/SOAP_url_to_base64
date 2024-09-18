@@ -115,7 +115,7 @@
     <service name="ImageService">
         <documentation>Service for processing images and adding integers</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
-            <soap:address location="https://soapurltobase64-production.up.railway.app/SOAP.Demo.cls"/>
+            <soap:address location="https://soap-base64-service.azurewebsites.net/SOAP.demo.cls"/>
         </port>
     </service>
 </definitions>
