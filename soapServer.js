@@ -53,8 +53,6 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     //Setting header content type 
     res.setHeader('Content-Type', 'text/xml');
-    //Content encoding
-    res.setHeader('Content-Encoding', 'gzip');
     next();
 });
 
