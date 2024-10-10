@@ -1,26 +1,29 @@
-var soap = require('soap');
-var url = 'http://localhost:8001/SOAP.Demo.cls?wsdl';
-var args = { imageUrl: 'http://www.delbag.net/SAP/HENGST_logo_carton.png' };
+import soap from 'soap'; // ES module import
+const url = 'http://localhost:8001/SOAP.Demo.cls?wsdl';
 
-soap.createClient(url, function(err, client) {
-  if (err) {
-    console.error("Client creation error: ", err);
-    return;
-  }
-  console.log(client)
-  client.ProcessImage(args, function(err, result) {
-    if (err) {
-        console.error("Error calling ProcessImage: ", err);
-    } else {
-        console.log("Result: ", result);
-    }
-  });
+// Define an async function to handle the SOAP requests
+async function callSOAPService() {
+    try {
+        // Create SOAP client asynchronously
+        const client = await soap.createClientAsync(url);
+        console.log("SOAP Client created successfully: ", client);
 
-  client.AddIntegers({ intA: 5, intB: 10 }, function(err, result) {
-    if (err) {
-        console.error("Error calling AddIntegers: ", err);
-    } else {
-        console.log("Result: ", result);
+        // Define arguments for ProcessImage operation
+        const imageArgs = { imageUrl: 'http://www.delbag.net/SAP/HENGST_logo_carton.png' };
+
+        // Call ProcessImage operation
+        const [imageResult] = await client.ProcessImageAsync(imageArgs);
+        console.log("ProcessImage Result: ", imageResult);
+
+        // Call AddIntegers operation
+        const addIntegersArgs = { intA: 5, intB: 10 };
+        const [addIntegersResult] = await client.AddIntegersAsync(addIntegersArgs);
+        console.log("AddIntegers Result: ", addIntegersResult);
+
+    } catch (err) {
+        console.error("Error: ", err);
     }
-});
-});
+}
+
+// Call the async function to execute the SOAP requests
+callSOAPService();
