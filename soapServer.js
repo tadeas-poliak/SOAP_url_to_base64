@@ -51,8 +51,8 @@ const app = express();
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    //Setting header content type 
-    res.setHeader('Content-Type', 'text/xml');
+    //Setting header content type with char set
+    res.header('Content-Type', 'text/xml; charset=utf-8');
     next();
 });
 
