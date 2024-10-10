@@ -12,8 +12,8 @@
     <!-- Define the types -->
     <types>
         <xsd:schema elementFormDefault="qualified" targetNamespace="https://soap-base64-service.azurewebsites.net/ImageService">
-            <xsd:import namespace="https://soap-base64-service.azurewebsites.net/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
-            <xsd:import namespace="https://soap-base64-service.azurewebsites.net/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
+            <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
+            <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
             <!-- Define the complex types here if needed -->
             <xsd:element name="ProcessImageRequest">
                 <xsd:complexType>
