@@ -1,7 +1,7 @@
 const express = require('express');
 const soap = require('soap');
 const fs = require('fs');
-const fetch = import('node-fetch');
+const fetch = require('node-fetch'); // Change this to require
 const { createCanvas, loadImage } = require('canvas');
 
 const myService = {
@@ -12,7 +12,7 @@ const myService = {
                 try {
                     console.log('Received args:', args);
 
-                    const response = await fetch(args.imageUrl);
+                    const response = await fetch(args.imageUrl); // Use fetch correctly
                     if (!response.ok) {
                         throw new Error(`Failed to fetch image: ${response.statusText}`);
                     }
@@ -47,7 +47,6 @@ const xml = fs.readFileSync('testService.wsdl', 'utf8');
 const port = process.env.PORT || 8001;
 const app = express();
 
-
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -62,13 +61,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-
 app.listen(port, function () {
-    
     soap.listen(app, '/SOAP.Demo.cls', myService, xml, function () {
         console.log('SOAP server initialized... open http://localhost:'+ port +'/SOAP.Demo.cls?wsdl');
     });
 });
-
-
