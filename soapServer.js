@@ -54,6 +54,12 @@ app.use(function (req, res, next) {
     next();
 });
 
+//Setting content type for response
+app.use((req, res, next) => {
+    res.setHeader('Content-Type', 'text/xml');
+    next();
+});
+
 app.listen(port, function () {
     soap.listen(app, '/SOAP.Demo.cls', myService, xml, function () {
         console.log('SOAP server initialized... open http://localhost:'+ port +'/SOAP.Demo.cls?wsdl');
