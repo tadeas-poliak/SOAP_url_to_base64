@@ -44,7 +44,7 @@ const myService = {
 
 const xml = fs.readFileSync('testService.wsdl', 'utf8');
 
-const port = 44300//process.env.PORT || 8001;
+const port = process.env.PORT || 8001;
 const app = express();
 
 
