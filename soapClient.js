@@ -1,6 +1,7 @@
 import soap from 'soap'; // ES module import
-const url = 'http://localhost:8001/SOAP.Demo.cls?wsdl';
 
+// const url = 'http://localhost:8001/SOAP.Demo.cls?wsdl';
+const url = 'https://soapurltobase64-production.up.railway.app/SOAP.demo.cls?wsdl';
 // Define an async function to handle the SOAP requests
 async function callSOAPService() {
     try {
@@ -17,7 +18,7 @@ async function callSOAPService() {
 
         // Call AddIntegers operation
         const addIntegersArgs = { intA: 5, intB: 10 };
-        const [addIntegersResult] = await client.AddIntegersAsync(addIntegersArgs);
+        const addIntegersResult = await client.AddIntegersAsync(addIntegersArgs);
         console.log("AddIntegers Result: ", addIntegersResult);
 
     } catch (err) {

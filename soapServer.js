@@ -9,10 +9,9 @@ const myService = {
         ImagePort: {
             // Existing ProcessImage function
             ProcessImage: async function (args) {
-                console.log("hello")
+
                 try {
-                    console.log('Received args:', args);
-                    console.log(fetch)
+
                     const response = await fetch(args.imageUrl);
                     if (!response.ok) {
                         throw new Error(`Failed to fetch image: ${response.statusText}`);

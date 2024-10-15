@@ -1,20 +1,24 @@
-<definitions name="ImageService"
-             targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService"
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="CombinedService"
+             targetNamespace="https://soapurltobase64-production.up.railway.app/CombinedService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:tns="https://soapurltobase64-production.up.railway.app/ImageService"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+             xmlns:tns="https://soapurltobase64-production.up.railway.app/CombinedService"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:s0="http://tempuri.org">
 
     <!-- Define the types -->
     <types>
-        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService">
+        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app/CombinedService">
+            <!-- Imports from ImageService -->
             <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
             <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
-            <!-- Define the complex types here if needed -->
+
+            <!-- ImageService Complex Types -->
             <xsd:element name="ProcessImageRequest">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -22,6 +26,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+
             <xsd:element name="ProcessImageResponse">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -29,6 +34,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+
             <xsd:element name="AddIntegersRequest">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -37,6 +43,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+
             <xsd:element name="AddIntegersResponse">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -44,16 +51,92 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+
+            <!-- Extended Operations for ImageService -->
+            <xsd:element name="DivideIntegerRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Arg1" type="xsd:long"/>
+                        <xsd:element name="Arg2" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="DivideIntegerResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="DivideIntegerResult" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="FindPersonRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="FindPersonResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- Assuming Person is defined in the imported schema -->
+                        <xsd:element name="FindPersonResult" type="s0:Person"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="QueryByNameRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="name" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="QueryByNameResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="QueryByNameResult" type="s0:QueryByName_DataSet"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <!-- SOAPDemo Complex Types -->
+            <s0:complexType name="AddInteger">
+                <s0:complexContent>
+                    <s0:extension base="xsd:string">
+                        <s0:sequence>
+                            <s0:element minOccurs="0" name="Arg1" type="xsd:long"/>
+                            <s0:element minOccurs="0" name="Arg2" type="xsd:long"/>
+                        </s0:sequence>
+                    </s0:extension>
+                </s0:complexContent>
+            </s0:complexType>
+
+            <s0:complexType name="AddIntegerResponse">
+                <s0:complexType>
+                    <s0:sequence>
+                        <s0:element name="AddIntegerResult" type="xsd:long"/>
+                    </s0:sequence>
+                </s0:complexType>
+            </s0:complexType>
+
+            <!-- Define other SOAPDemo types as needed -->
+            <!-- ... (Other types from the second WSDL) ... -->
+
         </xsd:schema>
     </types>
 
-    <!-- Define the input and output messages -->
+    <!-- Define Messages for ImageService -->
     <message name="ProcessImageRequestSoapIn">
         <part name="parameters" element="tns:ProcessImageRequest"/>
     </message>
     <message name="ProcessImageResponseSoapOut">
         <part name="parameters" element="tns:ProcessImageResponse"/>
     </message>
+
     <message name="AddIntegersRequestSoapIn">
         <part name="parameters" element="tns:AddIntegersRequest"/>
     </message>
@@ -61,7 +144,39 @@
         <part name="parameters" element="tns:AddIntegersResponse"/>
     </message>
 
-    <!-- Define the port type with the operations -->
+    <message name="DivideIntegerRequestSoapIn">
+        <part name="parameters" element="tns:DivideIntegerRequest"/>
+    </message>
+    <message name="DivideIntegerResponseSoapOut">
+        <part name="parameters" element="tns:DivideIntegerResponse"/>
+    </message>
+
+    <message name="FindPersonRequestSoapIn">
+        <part name="parameters" element="tns:FindPersonRequest"/>
+    </message>
+    <message name="FindPersonResponseSoapOut">
+        <part name="parameters" element="tns:FindPersonResponse"/>
+    </message>
+
+    <message name="QueryByNameRequestSoapIn">
+        <part name="parameters" element="tns:QueryByNameRequest"/>
+    </message>
+    <message name="QueryByNameResponseSoapOut">
+        <part name="parameters" element="tns:QueryByNameResponse"/>
+    </message>
+
+    <!-- Define Messages for SOAPDemo -->
+    <message name="AddIntegerSoapIn">
+        <part name="parameters" element="s0:AddInteger"/>
+    </message>
+    <message name="AddIntegerSoapOut">
+        <part name="parameters" element="s0:AddIntegerResponse"/>
+    </message>
+
+    <!-- Define other SOAPDemo messages as needed -->
+    <!-- ... (Other messages from the second WSDL) ... -->
+
+    <!-- Define PortTypes -->
     <portType name="ImagePortType">
         <operation name="ProcessImage">
             <input message="tns:ProcessImageRequestSoapIn"/>
@@ -71,52 +186,107 @@
             <input message="tns:AddIntegersRequestSoapIn"/>
             <output message="tns:AddIntegersResponseSoapOut"/>
         </operation>
-        <!-- New Operation for SOAP.Demo -->
-        <operation name="SOAPDemoAddInteger">
-            <input message="tns:AddIntegersRequestSoapIn"/>
-            <output message="tns:AddIntegersResponseSoapOut"/>
+        <operation name="DivideInteger">
+            <input message="tns:DivideIntegerRequestSoapIn"/>
+            <output message="tns:DivideIntegerResponseSoapOut"/>
+        </operation>
+        <operation name="FindPerson">
+            <input message="tns:FindPersonRequestSoapIn"/>
+            <output message="tns:FindPersonResponseSoapOut"/>
+        </operation>
+        <operation name="QueryByName">
+            <input message="tns:QueryByNameRequestSoapIn"/>
+            <output message="tns:QueryByNameResponseSoapOut"/>
         </operation>
     </portType>
 
-    <!-- Define the binding -->
+    <portType name="SOAPDemoPortType">
+        <operation name="AddInteger">
+            <input message="s0:AddIntegerSoapIn"/>
+            <output message="s0:AddIntegerSoapOut"/>
+        </operation>
+        <!-- Define other SOAPDemo operations here -->
+        <!-- ... (Other operations from the second WSDL) ... -->
+    </portType>
+
+    <!-- Define Bindings -->
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/ProcessImage"/>
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/CombinedService/ProcessImage"/>
             <input>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
             </output>
         </operation>
         <operation name="AddIntegers">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/AddIntegers"/>
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/CombinedService/AddIntegers"/>
             <input>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
             </output>
         </operation>
-        <!-- New Binding for SOAP.Demo -->
-        <operation name="SOAPDemoAddInteger">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/SOAP.Demo.AddInteger"/>
+        <operation name="DivideInteger">
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/CombinedService/DivideInteger"/>
             <input>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/SOAP.demo.ImageService"/>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
             </input>
             <output>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/SOAP.demo.ImageService"/>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
+            </output>
+        </operation>
+        <operation name="FindPerson">
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/CombinedService/FindPerson"/>
+            <input>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
+            </output>
+        </operation>
+        <operation name="QueryByName">
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/CombinedService/QueryByName"/>
+            <input>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/CombinedService"/>
             </output>
         </operation>
     </binding>
 
-    <!-- Define the service and its endpoint -->
+    <binding name="SOAPDemoBinding" type="s0:SOAPDemoPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="AddInteger">
+            <soap:operation soapAction="http://tempuri.org/SOAP.Demo.AddInteger" style="document"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <!-- Define other SOAPDemo bindings here -->
+        <!-- ... (Other bindings from the second WSDL) ... -->
+    </binding>
+
+    <!-- Define Services -->
     <service name="ImageService">
         <documentation>Service for processing images and adding integers</documentation>
         <port binding="tns:ImageBinding" name="ImagePort">
-            <soap:address location="https://soapurltobase64-production.up.railway.app/SOAP.demo.cls"/>
-            <!-- <soap:address location="http://localhost:8001/SOAP.Demo.cls"/> -->
+            <soap:address location="https://soapurltobase64-production.up.railway.app/ImageService.asmx"/>
         </port>
     </service>
+
+    <service name="SOAPDemo">
+        <documentation>SOAPDemo Service for additional operations</documentation>
+        <port binding="s0:SOAPDemoBinding" name="SOAPDemoPort">
+            <soap:address location="https://soapurltobase64-production.up.railway.app/SOAP.Demo.cls"/>
+        </port>
+    </service>
+
 </definitions>
