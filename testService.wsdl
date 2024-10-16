@@ -1,5 +1,5 @@
 <definitions name="ImageService"
-             targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService"
+             targetNamespace="https://soapurltobase64-production.up.railway.app"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
@@ -11,7 +11,7 @@
 
     <!-- Define the types -->
     <types>
-        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService">
+        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app">
             <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
             <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
             <!-- Define the complex types here if needed -->
