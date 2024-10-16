@@ -1,12 +1,12 @@
 <definitions name="ImageService"
-             targetNamespace="https://soapurltobase64-production.up.railway.app"
+             targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:tns="https://soapurltobase64-production.up.railway.app"
+             xmlns:tns="https://soapurltobase64-production.up.railway.app/ImageService"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
     <!-- Define the types -->
