@@ -1,19 +1,19 @@
 <definitions name="ImageService"
-             targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService"
+             targetNamespace="http://tempuri.org"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:tns="https://soapurltobase64-production.up.railway.app/ImageService"
+             xmlns:tns="http://tempuri.org"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
     <!-- Define the types -->
     <types>
-        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService">
-            <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
-            <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
+        <xsd:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org">
+            <!-- <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
+            <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/> -->
             <!-- Define the complex types here if needed -->
             <xsd:element name="ProcessImageRequest">
                 <xsd:complexType>
@@ -82,7 +82,7 @@
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/ProcessImage" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/ImageService/ProcessImage" style="document"/>
             <input>
                 <soap:body use="literal"  />
             </input>
@@ -91,7 +91,7 @@
             </output>
         </operation>
         <operation name="AddIntegers">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/AddIntegers" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/ImageService/AddIntegers" style="document"/>
             <input>
                 <soap:body use="literal" />
             </input>
@@ -101,7 +101,7 @@
         </operation>
         <!-- New Binding for SOAP.Demo -->
         <operation name="SOAPDemoAddInteger">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/SOAP.Demo.AddInteger" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/SOAP.Demo.AddInteger" style="document"/>
             <input>
                 <soap:body use="literal" />
             </input>
@@ -117,6 +117,7 @@
         <port binding="tns:ImageBinding" name="ImagePort">
             <soap:address location="https://soapurltobase64-production.up.railway.app:443/SOAP.demo.cls"/>
             <!-- <soap:address location="http://localhost:8001/SOAP.Demo.cls"/> -->
+
         </port>
     </service>
 </definitions>
