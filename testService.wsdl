@@ -1,5 +1,5 @@
 <definitions name="ImageService"
-             targetNamespace="https://soapurltobase64-production.up.railway.app"
+             targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
@@ -11,7 +11,7 @@
 
     <!-- Define the types -->
     <types>
-        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app">
+        <xsd:schema elementFormDefault="qualified" targetNamespace="https://soapurltobase64-production.up.railway.app/ImageService">
             <xsd:import namespace="http://tempuri.org/ByNameDataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.ByNameDataSet.cls?XSD"/>
             <xsd:import namespace="http://tempuri.org/QueryByName_DataSet" schemaLocation="https://www.crcind.com:443/csp/samples/SOAP.Demo.QueryByName.DS.cls?XSD"/>
             <!-- Define the complex types here if needed -->
@@ -82,31 +82,31 @@
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/ProcessImage"/>
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/ProcessImage" style="document"/>
             <input>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal"  />
             </input>
             <output>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" />
             </output>
         </operation>
         <operation name="AddIntegers">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/AddIntegers"/>
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/ImageService/AddIntegers" style="document"/>
             <input>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" />
             </input>
             <output>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/ImageService"/>
+                <soap:body use="literal" />
             </output>
         </operation>
         <!-- New Binding for SOAP.Demo -->
         <operation name="SOAPDemoAddInteger">
-            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/SOAP.Demo.AddInteger"/>
+            <soap:operation soapAction="https://soapurltobase64-production.up.railway.app/SOAP.Demo.AddInteger" style="document"/>
             <input>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/SOAP.demo.ImageService"/>
+                <soap:body use="literal" />
             </input>
             <output>
-                <soap:body use="literal" namespace="https://soapurltobase64-production.up.railway.app/SOAP.demo.ImageService"/>
+                <soap:body use="literal" />
             </output>
         </operation>
     </binding>
