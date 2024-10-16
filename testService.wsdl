@@ -82,7 +82,7 @@
     <binding name="ImageBinding" type="tns:ImagePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ProcessImage">
-            <soap:operation soapAction="http://tempuri.org/ImageService/ProcessImage" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/SOAP.Demo.ProcessImage" style="document"/>
             <input>
                 <soap:body use="literal"  />
             </input>
@@ -91,7 +91,7 @@
             </output>
         </operation>
         <operation name="AddIntegers">
-            <soap:operation soapAction="http://tempuri.org/ImageService/AddIntegers" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/SOAP.Demo.AddIntegers" style="document"/>
             <input>
                 <soap:body use="literal" />
             </input>
