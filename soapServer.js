@@ -60,6 +60,11 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', function (req, res) {
+    //Redirect to WSDL file
+    res.redirect('/SOAP.Demo.cls?wsdl');
+})
+
 app.listen(port, function () {
     soap.listen(app, '/SOAP.Demo.cls', myService, xml, function () {
         console.log('SOAP server initialized... open http://localhost:'+ port +'/SOAP.Demo.cls?wsdl');

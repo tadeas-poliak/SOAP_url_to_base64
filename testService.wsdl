@@ -113,7 +113,7 @@
 
     <!-- Define the service and its endpoint -->
     <service name="ImageService">
-        <documentation>Service for processing images and adding integers</documentation>
+        <!-- <documentation>Service for processing images and adding integers</documentation> -->
         <port binding="tns:ImageBinding" name="ImagePort">
             <soap:address location="https://soapurltobase64-production.up.railway.app:443/SOAP.demo.cls"/>
             <!-- <soap:address location="http://localhost:8001/SOAP.Demo.cls"/> -->
