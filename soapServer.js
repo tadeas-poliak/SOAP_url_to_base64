@@ -18,7 +18,6 @@ const myService = {
                     }
 
                     const buffer = await response.buffer();
-                    console.log('Downloaded image buffer:', buffer);
 
                     const image = await loadImage(buffer);
                     const imageCanvas = createCanvas(image.width, image.height);
