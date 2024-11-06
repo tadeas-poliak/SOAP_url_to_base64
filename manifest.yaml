@@ -1,0 +1,20 @@
+---
+applications:
+  - name: SOAP_base64_to_url  # Name of your SOAP service application
+    memory: 512M                  # Memory allocation, adjust based on your needs
+    disk_quota: 1G                # Disk space allocation
+    instances: 1                  # Number of instances to run
+    path: .                        # Set the path to the current directory
+    buildpacks:
+      - nodejs_buildpack          # Node.js buildpack for Cloud Foundry
+    command: "node soapServer.js" # Command to start your server, adjust as necessary
+    env:
+      NODE_ENV: production        # Set the environment to production
+      #SOAP_SERVICE_URL: "https://SOAP_base64_to_url.cfapps.<your-cloud-foundry-domain>" # Optional service URL
+      # Add any other environment variables your service may need
+services:
+  # Define any services required by your application, such as databases or authentication services
+  # Uncomment and modify the below lines if you need to bind external services
+  # - name: my-database-service
+  #   type: managed
+  #   plan: standard

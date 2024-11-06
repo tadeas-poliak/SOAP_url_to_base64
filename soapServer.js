@@ -43,15 +43,15 @@ const myService = {
 
 const xml = fs.readFileSync('testService.wsdl', 'utf8');
 
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 443;
 const app = express();
 
 
-app.use(function (req, res, next) {
-    console.log("Request was made.");
-    console.log('Request received: ', req.url);
-    next();
-});
+// app.use(function (req, res, next) {
+    // console.log("Request was made.");
+    // console.log('Request received: ', req.url);
+//     next();
+// });
 
 //Setting content type for response
 app.use((req, res, next) => {
