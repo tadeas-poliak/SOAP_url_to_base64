@@ -1,0 +1,19 @@
+ID: soap-service-app
+_schema-version: "3.2"
+version: 1.0.0
+
+modules:
+  - name: soap-service
+    type: nodejs
+    path: .
+    parameters:
+      disk-quota: 1G
+      memory: 512M
+    provides:
+      - name: soap-service-api
+        properties:
+          url: "${default-url}"
+    build-parameters:
+      builder: npm
+      build-command: "npm install --production && npm run start"
+    requires: []
