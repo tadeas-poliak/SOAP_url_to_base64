@@ -115,7 +115,9 @@
     <service name="ImageService">
         <!-- <documentation>Service for processing images and adding integers</documentation> -->
         <port binding="tns:ImageBinding" name="ImagePort">
-            <soap:address location="https://soap_base64_to_url.cfapps.eu10-004.hana.ondemand.com:443/SOAP.demo.cls"/>
+            <soap:address location="https://hengst-se-connectivity-s4hana-cloud-prodsystem-n3gmf9pl4bfcc271.cfapps.eu10-004.hana.ondemand.com/SOAP.demo.cls"/>
+            <!-- <soap:address location="https://ntt-data-business-solutions-a-s-ntt-cz-1-cloud-test-spa718ff1f4.cfapps.eu10-004.hana.ondemand.com/SOAP.demo.cls"/> -->
+            <!-- <soap:address location="https://soap_base64_to_url.cfapps.eu10-004.hana.ondemand.com:443/SOAP.demo.cls"/> -->
             <!-- <soap:address location="http://localhost:8001/SOAP.Demo.cls"/> -->
 
         </port>

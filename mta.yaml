@@ -16,4 +16,6 @@ modules:
     build-parameters:
       builder: npm
       build-command: "npm install --production && npm run start"
+      ignore:
+        - mta_archives/
     requires: []

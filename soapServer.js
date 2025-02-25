@@ -27,6 +27,7 @@ const myService = {
                     const base64Image = imageCanvas.toDataURL('image/png').replace('data:image/png;base64,', '');
                     return { base64Image: base64Image };
                 } catch (err) {
+                    console.error('Error args:', JSON.stringify(args))
                     console.error('Error in ProcessImage:', err);
                     return { base64Image: `Error: ${err.message}` };
                 }
